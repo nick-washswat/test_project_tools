@@ -3,47 +3,45 @@ import styled from 'styled-components/native';
 import Cross from 'v1/assets/cross.svg';
 
 //recoil
-import { useRecoilState } from 'recoil';
-import { initialStateAtom } from 'v2/atom/initialAtomState';
+import {useRecoilState} from 'recoil';
+import {initialStateAtom} from 'v2/atom/initialAtomState';
 
 const Card: React.FC<CardPropTypes> = ({_id, title, color}) => {
-
-  const [initialList, setInitiaList] =useRecoilState(initialStateAtom)
+  const [initialList, setInitiaList] = useRecoilState(initialStateAtom);
   const [selectedCompTitle, setSelectedCompTitle] = useState('');
   const [selectedCompNewTitle, setSelectedCompNewTitle] = useState('');
 
-
   const onPressHandler = () => {
-    const updateList=[...initialList.list]
-    const updateListIndex=updateList.findIndex((el)=>el.title===selectedCompTitle)
-    if(updateListIndex!==-1){
-      updateList[updateListIndex]={
-              ...updateList[updateListIndex],
-              title: selectedCompNewTitle,
-              color:
-                '#' +
-                Math.floor(Math.random() * 16777215)
-                  .toString(16)
-                  .padStart(6, '0'),
-            }
-            setInitiaList({
-              ...initialList,
-              list:updateList,     
-            })
+    const updateList = [...initialList.list];
+    const updateListIndex = updateList.findIndex(
+      el => el.title === selectedCompTitle,
+    );
+    if (updateListIndex !== -1) {
+      updateList[updateListIndex] = {
+        ...updateList[updateListIndex],
+        title: selectedCompNewTitle,
+        color:
+          '#' +
+          Math.floor(Math.random() * 16777215)
+            .toString(16)
+            .padStart(6, '0'),
+      };
+      setInitiaList({
+        ...initialList,
+        list: updateList,
+      });
     }
     setSelectedCompTitle('');
     setSelectedCompNewTitle('');
-
   };
 
   const deleteHandler = () => {
-    const updateList=[...initialList.list]
-    const newList=updateList.filter((el)=>el._id!==_id)
+    const updateList = [...initialList.list];
+    const newList = updateList.filter(el => el._id !== _id);
     setInitiaList({
       ...initialList,
-      list:newList
-    })
-  
+      list: newList,
+    });
   };
 
   return (

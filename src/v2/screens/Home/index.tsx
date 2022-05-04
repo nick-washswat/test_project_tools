@@ -1,33 +1,31 @@
 import React, {useCallback} from 'react';
 import styled from 'styled-components/native';
 
-import {useRecoilState} from 'recoil'
-import { initialStateAtom } from 'v2/atom/initialAtomState';
+import {useRecoilState} from 'recoil';
+import {initialStateAtom} from 'v2/atom/initialAtomState';
 
 // components
 import {Card} from 'v2/components';
 
-
-
 const Home = () => {
-  const [initialList, setInitiaList] =useRecoilState(initialStateAtom)
+  const [initialList, setInitiaList] = useRecoilState(initialStateAtom);
   const renderItemHandler = useCallback(({item}) => <Card {...item} />, []);
 
   const addNewCardHandler = () => {
-
-  const updatedList = [...initialList.list]
+    const updatedList = [...initialList.list];
     updatedList.push({
       _id: initialList.count.toString(),
-      title:"Card"+ initialList.count,
-      color:       '#' +
-      Math.floor(Math.random() * 16777215)
-        .toString(16)
-        .padStart(6, '0'),
-    })
+      title: 'Card' + initialList.count,
+      color:
+        '#' +
+        Math.floor(Math.random() * 16777215)
+          .toString(16)
+          .padStart(6, '0'),
+    });
     setInitiaList({
       list: updatedList,
-      count: initialList.count+1
-    })
+      count: initialList.count + 1,
+    });
   };
 
   return (
