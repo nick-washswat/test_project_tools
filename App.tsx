@@ -3,13 +3,13 @@ import {Provider} from 'react-redux';
 import {ThemeProvider} from 'styled-components';
 
 // routes
-import Layout from 'routes';
+import Layout from 'v1/routes';
 
 // store
-import store from 'store';
+import store from 'v1/store';
 
 //styles
-import {theme} from 'styles';
+import {theme} from 'v1/styles';
 
 const App = () => {
   return (

@@ -2,8 +2,8 @@ import React from 'react';
 import {Platform} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Home} from 'screens';
-import {MainStackType} from 'types/routeTypes';
+import {Home} from 'v1/screens';
+import {MainStackType} from 'v1/types/routeTypes';
 
 const Stack = createNativeStackNavigator<MainStackType>();
 

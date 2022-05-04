@@ -1,8 +1,8 @@
 import React, {memo, Profiler, useState} from 'react';
 import {useDispatch} from 'react-redux';
-import {removeCard, updateCard} from 'store/slices/cardSlice';
+import {removeCard, updateCard} from 'v1/store/slices/cardSlice';
 import styled from 'styled-components/native';
-import Cross from 'assets/cross.svg';
+import Cross from 'v1/assets/cross.svg';
 
 const Card: React.FC<CardPropTypes> = ({_id, title, color}) => {
   const dispatch = useDispatch();

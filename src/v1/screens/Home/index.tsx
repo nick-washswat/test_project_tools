@@ -1,14 +1,14 @@
 import React, {useCallback} from 'react';
 import {useSelector} from 'react-redux';
 import styled from 'styled-components/native';
-import {AppState} from 'store';
+import {AppState} from 'v1/store';
 import {useDispatch} from 'react-redux';
 
 // components
-import {Card} from 'components';
+import {Card} from 'v1/components';
 
 // store
-import {addCard} from 'store/slices/cardSlice';
+import {addCard} from 'v1/store/slices/cardSlice';
 
 const Home = () => {
   const dispatch = useDispatch();
