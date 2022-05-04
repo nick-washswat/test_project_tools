@@ -1,4 +1,5 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {atom} from 'recoil'
 
 const dummyCards = [
   {
@@ -37,6 +38,15 @@ const initialState: InitialState = {
   list: dummyCards,
   count: dummyCards.length + 1,
 };
+
+const initialStateAtom:InitialState=atom({
+  key:'initialstateAtom',
+  default:[{
+    list:dummyCards,
+    count:dummyCards.length+1
+  }]
+})
+
 
 const cardSlice = createSlice({
   name: 'card',
