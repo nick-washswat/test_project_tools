@@ -7,10 +7,13 @@ import {useRecoilState} from 'recoil';
 import {initialStateAtom} from 'v2/atom/initialAtomState';
 
 const Card: React.FC<CardPropTypes> = ({_id, title, color}) => {
+  //initial Atom state
   const [initialList, setInitiaList] = useRecoilState(initialStateAtom);
+  //react hook state
   const [selectedCompTitle, setSelectedCompTitle] = useState('');
   const [selectedCompNewTitle, setSelectedCompNewTitle] = useState('');
 
+  //updating card title func
   const onPressHandler = () => {
     const updateList = [...initialList.list];
     const updateListIndex = updateList.findIndex(

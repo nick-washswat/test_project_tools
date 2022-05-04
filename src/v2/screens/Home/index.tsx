@@ -8,9 +8,11 @@ import {initialStateAtom} from 'v2/atom/initialAtomState';
 import {Card} from 'v2/components';
 
 const Home = () => {
+  //initial Atom state
   const [initialList, setInitiaList] = useRecoilState(initialStateAtom);
   const renderItemHandler = useCallback(({item}) => <Card {...item} />, []);
 
+  //add new card func
   const addNewCardHandler = () => {
     const updatedList = [...initialList.list];
     updatedList.push({

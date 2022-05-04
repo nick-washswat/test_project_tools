@@ -5,6 +5,8 @@ interface InitialState {
   list: Array<CardPropTypes>;
   count: number;
 }
+
+//initial Atom state using atom from recoil
 export const initialStateAtom: RecoilState<InitialState> = atom({
   key: 'initialstateAtom',
   default: {
