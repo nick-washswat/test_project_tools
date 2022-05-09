@@ -5,20 +5,23 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Home} from 'v1/screens';
 import {MainStackType} from 'v1/types/routeTypes';
 
+//draft
+import UI005 from '../components/UI005';
+
 const Stack = createNativeStackNavigator<MainStackType>();
 
 const Root = () => {
   return (
     <Stack.Navigator
-      initialRouteName="Home"
+      initialRouteName="UI005"
       screenOptions={{
         animationTypeForReplace: 'push',
         animation: Platform.OS === 'ios' ? 'default' : 'fade',
         headerShadowVisible: false,
       }}>
       <Stack.Screen
-        name="Home"
-        component={Home}
+        name="UI005"
+        component={UI005}
         options={{headerLeft: () => null}}
       />
     </Stack.Navigator>
