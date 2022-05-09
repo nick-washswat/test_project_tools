@@ -49,6 +49,13 @@ const UI005: React.FC<Props> = () => {
         />
         <Spacer height={12} />
         <Description>일괄 물세탁 후 기계건조합니다.</Description>
+        <Spacer height={12} />
+        <HorizontalLine />
+        <Spacer height={12} />
+        <ItemListWrapper>
+          <ItemList>가능 품목</ItemList>
+          <ItemListTitle>의류, 신발, 침구, 커튼, 커버 등</ItemListTitle>
+        </ItemListWrapper>
       </CardContainer>
     </Wrapper>
   );
@@ -77,6 +84,10 @@ const CardContainer = styled.View`
   padding-vertical: 20px;
 `;
 
+const ItemListWrapper = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+`;
 const Title = styled.Text`
   font-style: normal;
   font-weight: 600;
@@ -91,9 +102,25 @@ const Description = styled.Text`
   color: #848a93;
 `;
 
-const ItemListTitle = styled.Text``;
+const HorizontalLine = styled.View`
+  height: 1px;
+  background-color: #eff0f2;
+`;
+const ItemListTitle = styled.Text`
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  text-align: center;
+  color: #5d6166;
+`;
 
-const ItemList = styled.Text``;
+const ItemList = styled.Text`
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  text-align: right;
+  color: #5d6166;
+`;
 
 const CheckBox = styled.View``;
 
