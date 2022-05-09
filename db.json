@@ -1,0 +1,174 @@
+{
+  "screen001": {
+    "type": "washswat-screen",
+    "screen": "SCREEN001",
+    "createdAt": "1652077204",
+    "elements": [
+      {
+        "id": "NAV001",
+        "targetUrl": "SCREEN003",
+        "clearOnAction": true
+      },
+      {
+        "id": "UI001",
+        "texts": ["매일 밤 11시", "수거가 시작됩니다."]
+      },
+      {
+        "id": "BLANK",
+        "isHorizontalBar": false,
+        "height": 32
+      },
+      {
+        "id": "UI002",
+        "texts": ["수거: 9/19(월) 밤 11시", "배송: 9/22(목) 아침 7시"],
+        "buttonText": "변경",
+        "dataUrl": "apis.washswat.com/order/avaliableSchedule",
+        "globalSave": [
+          {
+            "name": "collectDate",
+            "value": "2022-9-19"
+          },
+          {
+            "name": "deliveryDate",
+            "value": "2022-9-22"
+          }
+        ]
+      },
+      {
+        "id": "UI003",
+        "imageUrl": "image.washswat.com/ui/element_3456.png",
+        "borderRound": 5
+      },
+      {
+        "id": "UI004",
+        "imageUrl": "image.washswat.com/ui/element_345644.png",
+        "text": "9/19(월) 밤 11시까지 문 앞에 세탁물을 준비해 주세요."
+      },
+      {
+        "id": "BLANK",
+        "isHorizontalBar": true,
+        "height": 12
+      },
+      {
+        "id": "UI004",
+        "imageUrl": "image.washswat.com/ui/element_345644.png",
+        "text": "비닐, 쇼핑백, 가망 등 편한 곳에 세탁물을 담아주시면 배송요원이 통째로 수거합니다."
+      },
+      {
+        "id": "BLANK",
+        "isHorizontalBar": true,
+        "height": 12
+      },
+      {
+        "id": "UI004",
+        "imageUrl": "image.washswat.com/ui/element_345644.png",
+        "text": "비닐, 쇼핑백은 세탁 후 폐기하며 가방의 경우 배송 시 세탁물과 함께 돌려드리니 안심하고 맡겨주세요."
+      },
+      {
+        "id": "NAV002",
+        "screen": "SCREEN002",
+        "isPreserveGlobalSave": true,
+        "buttonText": "다음",
+        "isEnabled": true
+      }
+    ]
+  },
+  "screen002": {
+    "type": "washswat-screen",
+    "screen": "SCREEN002",
+    "createdAt": "1652077204",
+    "elements": [
+      {
+        "id": "NAV001",
+        "targetUrl": "SCREEN001",
+        "clearOnAction": true
+      },
+      {
+        "id": "UI001",
+        "texts": ["세탁물의 종류를", "모두 선택해주세요."]
+      },
+      {
+        "id": "BLANK",
+        "isHorizontalBar": false,
+        "height": 32
+      },
+      {
+        "id": "UI005",
+        "title": "생활빨래",
+        "description": "일괄 물세탁 후 기계건조합니다.",
+        "itemListTitle": "가능 품목",
+        "itemList": "수건, 속옷, 양말",
+        "actions": [
+          {
+            "type": "on-select",
+            "target": "NAV002",
+            "command": "process",
+            "parameters": [true, "다음"]
+          },
+          {
+            "type": "on-deselect",
+            "target": "NAV002",
+            "command": "process",
+            "parameters": [false, "다음"]
+          }
+        ]
+      },
+      {
+        "id": "UI005",
+        "title": "맞춤세탁",
+        "description": "한 벌씩 세탁라벨에 따라 세탁합니다.",
+        "itemListTitle": "가능 품목",
+        "itemList": "의류, 신발, 침구, 커튼 등",
+        "actions": [
+          {
+            "type": "on-select",
+            "target": "NAV002",
+            "command": "process",
+            "parameters": [true, "다음"]
+          },
+          {
+            "type": "on-deselect",
+            "target": "NAV002",
+            "command": "process",
+            "parameters": [false, "다음"]
+          }
+        ]
+      },
+      {
+        "id": "UI006",
+        "title": "자주 묻는 질문",
+        "imageUrl": "image.washswat.com/icon/32445.png"
+      },
+      {
+        "id": "UI007",
+        "title": "생활빨래에 일반 의류를 넣어도 되나요?",
+        "description": "권장하지 않아요! 일반의류는 기계건조 시 사이즈가 줄어들 수 있어요. 약간 줄어도 괜찮은 옷이라면 넣으셔도 됩니다.",
+        "imageUrl": "image.washswat.com/icon/3244533.png"
+      },
+      {
+        "id": "UI007",
+        "title": "둘 다 선택하고 세탁물을 한꺼번에 담아도 되나요?",
+        "description": "아니요! 생활빨래와 맞춤세탁은 세탁법이 다르기 때문에 꼭! 분리해 담아주셔야 해요.",
+        "imageUrl": "image.washswat.com/icon/3244533.png"
+      },
+      {
+        "id": "UI007",
+        "title": "생활빨래에 일반 의류를 넣어도 되나요?",
+        "description": "맞습니다! 생활빨래를 제외한 모든 세탁물은 맞춤세탁에 해당합니다.",
+        "imageUrl": "image.washswat.com/icon/3244533.png"
+      },
+      {
+        "id": "BLANK",
+        "isHorizontalBar": false,
+        "height": 32
+      },
+      {
+        "id": "NAV002",
+        "screen": "SCREEN002",
+        "isPreserveGlobalSave": true,
+        "buttonText": "다음",
+        "isEnabled": true
+      }
+    ]
+  }
+}

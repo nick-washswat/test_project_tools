@@ -9,25 +9,35 @@ import {Card} from 'v1/components';
 
 // store
 import {addCard} from 'v1/store/slices/cardSlice';
+import {useQuery} from 'react-query';
+import {ActivityIndicator} from 'react-native';
 
 const Home = () => {
   const dispatch = useDispatch();
   const {list} = useSelector((state: AppState) => state.card);
-
+  const {isLoading, error, data} = useQuery('homeScreen', () =>
+    fetch('http://localhost:3000/homeScreen').then(res => res.json()),
+  );
+  console.log('>>>>>>>>>>>>>> LOADING', isLoading);
+  console.log('?????????????? DATA', data);
   const renderItemHandler = useCallback(({item}) => <Card {...item} />, []);
 
   const addNewCardHandler = () => {
     dispatch(addCard());
   };
 
-  return (
-    <Wrapper>
-      <StyledFlatlis data={list} renderItem={renderItemHandler} />
-      <AddButton onPress={addNewCardHandler}>
-        <Text>Add Card</Text>
-      </AddButton>
-    </Wrapper>
-  );
+  if (isLoading) {
+    return <ActivityIndicator />;
+  } else {
+    return (
+      <Wrapper>
+        <StyledFlatlis data={data} renderItem={renderItemHandler} />
+        <AddButton onPress={addNewCardHandler}>
+          <Text>Add Card</Text>
+        </AddButton>
+      </Wrapper>
+    );
+  }
 };
 
 export default Home;
