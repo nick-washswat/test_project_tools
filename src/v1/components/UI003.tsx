@@ -1,15 +1,16 @@
 import React from 'react';
+import {Dimensions} from 'react-native';
 import styled from 'styled-components/native';
 
 type Props = {
-  id: string;
-  imageUrl: string;
-  borderRound: number;
+  id?: string;
+  imageUrl?: string;
+  borderRound?: number;
 };
 
 const UI003: React.FC<Props> = ({imageUrl, borderRound}) => {
   return (
-    <Wrapper borderRadius={borderRound}>
+    <Wrapper borderRadius={borderRound || 0}>
       <StyledImage source={{uri: imageUrl}} />
     </Wrapper>
   );
@@ -18,12 +19,14 @@ const UI003: React.FC<Props> = ({imageUrl, borderRound}) => {
 export default UI003;
 
 const Wrapper = styled.View<{borderRadius: number}>`
-  height: 200;
-  width: '100%';
-  border-radius: ${props => props.borderRadius};
+  height: 200px;
+  width: ${Dimensions.get('screen').width - 48};
+  border-radius: ${props => props.borderRadius}px;
+  background-color: #348739;
+  margin-horizontal: 24px;
 `;
 
 const StyledImage = styled.Image`
-  width: '100%';
-  height: '100%';
+  width: 100%;
+  height: 100%;
 `;
