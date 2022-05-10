@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
+import {Alert} from 'react-native';
 
 type Props = {
   id: string;
@@ -20,43 +21,47 @@ const Spacer: React.FC<SpacerProps> = ({height, width}) => {
   return <ViewSpacer height={height} width={width} />;
 };
 
-// const UI005UI: React.FC<Props> = ({
-//   title,
-//   description,
-//   itemListTitle,
-//   itemList,
-//   actions,
-// }) => {
-//   return (
-//     <Wrapper>
-//       <Title>{title}</Title>
-//       <Description>{description}</Description>
-//     </Wrapper>
-//   );
-// };
+const UI005UI: React.FC<Props> = ({
+  id,
+  title,
+  description,
+  itemListTitle,
+  itemList,
+  actions,
+}) => {
+  return (
+    <CardContainer>
+      <Title>{title}</Title>
+      <BouncyCheckbox
+        onPress={actions}
+        size={28}
+        iconStyle={{borderWidth: 1, borderColor: '#E0E2E6'}}
+        fillColor="#1C1D20"
+        style={{position: 'absolute', right: 0, top: 20}}
+      />
+      <Spacer height={12} />
+      <Description>{description}</Description>
+      <Spacer height={12} />
+      <HorizontalLine />
+      <Spacer height={12} />
+      <ItemListWrapper>
+        <ItemList>{itemListTitle}</ItemList>
+        <ItemListTitle>{itemList}</ItemListTitle>
+      </ItemListWrapper>
+    </CardContainer>
+  );
+};
 
-const UI005: React.FC<Props> = () => {
+const UI005 = () => {
   return (
     <Wrapper>
-      <CardContainer>
-        <Title>생활빨래</Title>
-
-        <BouncyCheckbox
-          size={28}
-          iconStyle={{borderWidth: 1, borderColor: '#E0E2E6'}}
-          fillColor="#1C1D20"
-          style={{position: 'absolute', right: 0, top: 20}}
-        />
-        <Spacer height={12} />
-        <Description>일괄 물세탁 후 기계건조합니다.</Description>
-        <Spacer height={12} />
-        <HorizontalLine />
-        <Spacer height={12} />
-        <ItemListWrapper>
-          <ItemList>가능 품목</ItemList>
-          <ItemListTitle>의류, 신발, 침구, 커튼, 커버 등</ItemListTitle>
-        </ItemListWrapper>
-      </CardContainer>
+      <UI005UI
+        title="생활빨래"
+        description="일괄 물세탁 후 기계건조합니다."
+        itemListTitle="가능 품목"
+        itemList="의류, 신발, 침구, 커튼, 커버 등"
+        actions={() => Alert.alert('Pressed')}
+      />
     </Wrapper>
   );
 };
@@ -121,8 +126,6 @@ const ItemList = styled.Text`
   text-align: right;
   color: #5d6166;
 `;
-
-const CheckBox = styled.View``;
 
 const ViewSpacer = styled.View<SpacerProps>`
   height: ${props => props.height || 0}px;
