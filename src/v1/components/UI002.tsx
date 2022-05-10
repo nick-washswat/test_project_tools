@@ -3,6 +3,7 @@ import {Alert} from 'react-native';
 import styled from 'styled-components/native';
 
 type Props = {
+  id: string;
   texts?: string[];
   buttonText?: string;
   dataUrl?: string;
