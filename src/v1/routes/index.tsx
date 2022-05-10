@@ -22,7 +22,7 @@ const Root = () => {
       <Stack.Screen
         name="UI008"
         component={UI008}
-        options={{headerLeft: () => null}}
+        options={{headerLeft: () => null, presentation: 'modal'}}
       />
     </Stack.Navigator>
   );
