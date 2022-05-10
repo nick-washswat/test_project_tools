@@ -43,7 +43,7 @@ const LeftContainer = styled.View`
 
 const RightContainer = styled.TouchableOpacity`
   padding: 10px;
-  border: 1px solid #cacaca;
+  border: 1px solid #cecece;
   border-radius: 10;
 `;
 

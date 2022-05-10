@@ -12,7 +12,6 @@ import {MainStackType} from 'v1/types/routeTypes';
 
 const NAV001 = () => {
   const navigation = useNavigation<NativeStackNavigationProp<MainStackType>>();
-
   useEffect(() => {
     navigation.setOptions({
       headerLeft: () => (

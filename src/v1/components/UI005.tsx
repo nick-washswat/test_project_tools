@@ -1,7 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styled from 'styled-components/native';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
-import {Alert} from 'react-native';
 
 type Props = {
   id: string;
@@ -22,7 +21,7 @@ const Spacer: React.FC<SpacerProps> = ({height, width}) => {
   return <ViewSpacer height={height} width={width} />;
 };
 
-const UI005UI: React.FC<Props> = ({
+const UI005: React.FC<Props> = ({
   title,
   description,
   itemListTitle,
@@ -57,31 +56,7 @@ const UI005UI: React.FC<Props> = ({
   );
 };
 
-const UI005 = () => {
-  const [isChecked, setIsChecked] = useState(false);
-  console.log('isChecked: ', isChecked);
-  return (
-    <Wrapper>
-      <UI005UI
-        isChecked={isChecked}
-        actions={() => setIsChecked(!isChecked)}
-        title="생활빨래"
-        description="일괄 물세탁 후 기계건조합니다."
-        itemListTitle="가능 품목"
-        itemList="의류, 신발, 침구, 커튼, 커버 등"
-      />
-    </Wrapper>
-  );
-};
-
 export default UI005;
-
-const Wrapper = styled.View`
-  flex: 1;
-  background-color: white;
-  /* justify-content: center; */
-  align-items: center;
-`;
 
 const CardContainer = styled.View<{isChecked: boolean}>`
   margin-top: 30px;

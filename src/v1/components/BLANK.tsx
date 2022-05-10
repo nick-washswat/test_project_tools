@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components/native';
 
 type Props = {
-  isHorizontalBar: boolean;
-  height: number;
+  id?: string;
+  isHorizontalBar?: boolean;
+  height?: number;
 };
 
 const BLANK: React.FC<Props> = props => {
