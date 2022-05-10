@@ -48,7 +48,7 @@ const Home = () => {
     return (
       <Wrapper>
         {data.elements.map((el: UIType) => {
-          const Component = Components[el.id as keyof typeof Components];
+          const Component = Components[el.id as keyof Components];
           return <Component {...el} />;
         })}
       </Wrapper>

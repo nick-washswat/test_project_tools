@@ -7,36 +7,20 @@ type Props = {
   description: string;
   imageUrl: string;
 };
-const UI007UI: React.FC<Props> = ({title, description, imageUrl}) => {
+const UI007: React.FC<Props> = ({title, description, imageUrl}) => {
   return (
     <Container>
       <Title>{title}</Title>
       <HorizontalLine />
       <AnswerContainer>
-        <Image source={imageUrl}></Image>
+        <Image source={{uri: imageUrl}} />
         <Description>{description}</Description>
       </AnswerContainer>
     </Container>
   );
 };
 
-const UI007 = () => {
-  return (
-    <Wrapper>
-      <UI007UI
-        title="생활빨래에 속옷 말고 일반 의류를 넣어도 되나요?"
-        description="권장하지 않아요! 일반의류는 기계건조 시 사이즈가 줄어들 수 있어요. 줄어들어도 괜찮은 옷이라면 넣어주세요."
-        imageUrl={require('../assets/callout.svg')}
-      />
-    </Wrapper>
-  );
-};
-
 export default UI007;
-const Wrapper = styled.View`
-  flex: 1;
-  background-color: white;
-`;
 
 const Container = styled.View`
   padding: 16px;
