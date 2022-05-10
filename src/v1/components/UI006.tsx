@@ -7,28 +7,30 @@ type Props = {
   imageUrl: string;
 };
 
-const UI006: React.FC<Props> = () => {
+const UI006: React.FC<Props> = ({title, imageUrl}) => {
   return (
     <Wrapper>
-      <Title>자주 묻는 질문</Title>
+      <Title>{title}</Title>
+      <Img source={{uri: imageUrl}} />
     </Wrapper>
   );
 };
 
 export default UI006;
 const Wrapper = styled.View`
-  flex: 1;
-  padding-horizontal: 24px;
+  flex-direction: row;
+  align-items: center;
 `;
 
 const Title = styled.Text`
-  /* text-align: center; */
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
-  /* Black_10 */
   color: #1c1d20;
-  margin-top: 20px;
+  margin-right: 6px;
 `;
 
-const Img = styled.Image``;
+const Img = styled.Image`
+  width: 18px;
+  height: 18px;
+`;

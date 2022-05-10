@@ -6,7 +6,7 @@ import {Home} from 'v1/screens';
 import {MainStackType} from 'v1/types/routeTypes';
 
 //draft
-import UI006 from '../components/UI005';
+import UI006 from '../components/UI006';
 
 const Stack = createNativeStackNavigator<MainStackType>();
 
