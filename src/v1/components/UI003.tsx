@@ -22,7 +22,7 @@ const Wrapper = styled.View<{borderRadius: number}>`
   height: 200px;
   width: ${Dimensions.get('screen').width - 48};
   border-radius: ${props => props.borderRadius}px;
-  background-color: #348739;
+  background-color: #348738;
   margin-horizontal: 24px;
 `;
 
