@@ -6,22 +6,22 @@ import {Home} from 'v1/screens';
 import {MainStackType} from 'v1/types/routeTypes';
 
 //draft
-import UI006 from '../components/UI006';
+import UI008 from '../components/UI008';
 
 const Stack = createNativeStackNavigator<MainStackType>();
 
 const Root = () => {
   return (
     <Stack.Navigator
-      initialRouteName="UI006"
+      initialRouteName="UI008"
       screenOptions={{
         animationTypeForReplace: 'push',
         animation: Platform.OS === 'ios' ? 'default' : 'fade',
         headerShadowVisible: false,
       }}>
       <Stack.Screen
-        name="UI006"
-        component={UI006}
+        name="UI008"
+        component={UI008}
         options={{headerLeft: () => null}}
       />
     </Stack.Navigator>

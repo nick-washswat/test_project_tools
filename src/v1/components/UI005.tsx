@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components/native';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
-import {Alert} from 'react-native';
+import Spacer from './common/Spacer';
 
 type Props = {
   id: string;
@@ -11,15 +11,6 @@ type Props = {
   itemList: string;
   actions: any;
   isChecked: boolean;
-};
-
-type SpacerProps = {
-  height?: number;
-  width?: number;
-};
-
-const Spacer: React.FC<SpacerProps> = ({height, width}) => {
-  return <ViewSpacer height={height} width={width} />;
 };
 
 const UI005UI: React.FC<Props> = ({
@@ -134,9 +125,4 @@ const ItemList = styled.Text`
   font-size: 14px;
   text-align: right;
   color: #5d6166;
-`;
-
-const ViewSpacer = styled.View<SpacerProps>`
-  height: ${props => props.height || 0}px;
-  width: ${props => props.width || 0}px;
 `;
