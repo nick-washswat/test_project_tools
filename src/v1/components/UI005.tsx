@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components/native';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import {Alert} from 'react-native';
@@ -10,6 +10,7 @@ type Props = {
   itemListTitle: string;
   itemList: string;
   actions: any;
+  isChecked: boolean;
 };
 
 type SpacerProps = {
@@ -22,20 +23,24 @@ const Spacer: React.FC<SpacerProps> = ({height, width}) => {
 };
 
 const UI005UI: React.FC<Props> = ({
-  id,
   title,
   description,
   itemListTitle,
   itemList,
   actions,
+  isChecked,
 }) => {
   return (
-    <CardContainer>
+    <CardContainer isChecked={isChecked}>
       <Title>{title}</Title>
       <BouncyCheckbox
+        isChecked={isChecked}
         onPress={actions}
         size={28}
-        iconStyle={{borderWidth: 1, borderColor: '#E0E2E6'}}
+        iconStyle={{
+          borderWidth: 1,
+          borderColor: isChecked ? '#1C1D20' : '#E0E2E6',
+        }}
         fillColor="#1C1D20"
         style={{position: 'absolute', right: 0, top: 20}}
       />
@@ -53,14 +58,17 @@ const UI005UI: React.FC<Props> = ({
 };
 
 const UI005 = () => {
+  const [isChecked, setIsChecked] = useState(false);
+  console.log('isChecked: ', isChecked);
   return (
     <Wrapper>
       <UI005UI
+        isChecked={isChecked}
+        actions={() => setIsChecked(!isChecked)}
         title="생활빨래"
         description="일괄 물세탁 후 기계건조합니다."
         itemListTitle="가능 품목"
         itemList="의류, 신발, 침구, 커튼, 커버 등"
-        actions={() => Alert.alert('Pressed')}
       />
     </Wrapper>
   );
@@ -75,13 +83,14 @@ const Wrapper = styled.View`
   align-items: center;
 `;
 
-const CardContainer = styled.View`
+const CardContainer = styled.View<{isChecked: boolean}>`
   margin-top: 30px;
   width: 327px;
   height: 146px;
   background-color: #ffffff;
   /* Grayscale/Gray_50 */
-  border: 1px solid #e0e2e6;
+  border-width: 1px;
+  border-color: ${props => (props.isChecked ? '#1C1D20' : '#e0e2e6')};
   /* DS_L */
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
   border-radius: 10px;
