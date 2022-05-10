@@ -61,24 +61,5 @@ export default Home;
 const Wrapper = styled.View`
   flex: 1;
   background-color: #fff;
-  justify-content: center;
   align-items: center;
-`;
-
-const StyledFlatlis = styled.FlatList`
-  width: 100%;
-`;
-
-const AddButton = styled.TouchableOpacity`
-  position: absolute;
-  bottom: 50px;
-  background-color: #000;
-  border-radius: 50px;
-  padding-vertical: 10px;
-  padding-horizontal: 20px;
-`;
-
-const Text = styled.Text`
-  font-size: 18px;
-  color: #fff;
 `;
