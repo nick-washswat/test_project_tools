@@ -35,11 +35,11 @@ const Spacer: React.FC<SpacerProps> = ({height, width}) => {
 //   );
 // };
 
-const UI005: React.FC<Props> = () => {
+const UI005: React.FC<Props> = ({title}) => {
   return (
     <Wrapper>
       <CardContainer>
-        <Title>생활빨래</Title>
+        <Title>{title}</Title>
 
         <BouncyCheckbox
           size={28}

@@ -17,6 +17,15 @@ const UI001: React.FC<Props> = ({texts}) => {
 
 export default UI001;
 
-const Wrapper = styled.View``;
+const Wrapper = styled.View`
+  width: 100%;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-vertical: 8px;
+  padding-horizontal: 24px;
+`;
 
-const StyledText = styled.Text``;
+const StyledText = styled.Text`
+  font-size: 18px;
+  font-weight: bold;
+`;

@@ -1,25 +1,36 @@
 import React from 'react';
+import {Alert} from 'react-native';
 import styled from 'styled-components/native';
-import {boolean, string} from 'yargs';
 
 type Props = {
-  id: string;
-  screen: string;
-  isPreserveGlobalSave: boolean;
-  buttonText: string;
-  isEnabled: boolean;
+  id?: string;
+  screen?: string;
+  isPreserveGlobalSave?: boolean;
+  buttonText?: string;
+  isEnabled?: boolean;
 };
 
-const NAV002: React.FC<Props> = ({buttonText}) => {
+const NAV002: React.FC<Props> = ({buttonText, screen}) => {
   return (
-    <Wrapper>
+    <Button onPress={() => Alert.alert('FETCH SCREEN ' + screen)}>
       <Text>{buttonText}</Text>
-    </Wrapper>
+    </Button>
   );
 };
 
 export default NAV002;
 
-const Wrapper = styled.TouchableOpacity``;
+const Button = styled.TouchableOpacity`
+  background-color: #000;
+  width: 80%;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  padding-vertical: 20px;
+`;
 
-const Text = styled.Text``;
+const Text = styled.Text`
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+`;
