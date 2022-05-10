@@ -1,6 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import React, {useEffect} from 'react';
+import React, {FC, useEffect} from 'react';
 import {Alert} from 'react-native';
 import styled from 'styled-components/native';
 
@@ -10,7 +10,13 @@ import ArrowLeft from 'v1/assets/arrowLeft.svg';
 // types
 import {MainStackType} from 'v1/types/routeTypes';
 
-const NAV001 = () => {
+type Props = {
+  id: string;
+  targetUrl: string;
+  clearOnAction: boolean;
+};
+
+const NAV001: React.FC<Props> = () => {
   const navigation = useNavigation<NativeStackNavigationProp<MainStackType>>();
   useEffect(() => {
     navigation.setOptions({
