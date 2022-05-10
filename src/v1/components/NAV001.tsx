@@ -1,26 +1,23 @@
-import {useNavigation} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React, {useEffect} from 'react';
-import {Alert} from 'react-native';
 import styled from 'styled-components/native';
 
 // assets
 import ArrowLeft from 'v1/assets/arrowLeft.svg';
+import useCustomRoute from 'v1/hooks/useCustomRoute';
 
 // types
-import {MainStackType} from 'v1/types/routeTypes';
 
 const NAV001 = () => {
-  const navigation = useNavigation<NativeStackNavigationProp<MainStackType>>();
+  const {goBack, setOptions} = useCustomRoute();
   useEffect(() => {
-    navigation.setOptions({
+    setOptions({
       headerLeft: () => (
-        <StyledButton onPress={() => Alert.alert('HEY there')}>
+        <StyledButton onPress={() => goBack()}>
           <Icon source={ArrowLeft} />
         </StyledButton>
       ),
     });
-  }, []);
+  }, [goBack, setOptions]);
   return null;
 };
 

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components/native';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import Spacer from './common/Spacer';
+import {StyleProp, ViewStyle} from 'react-native';
 
 type Props = {
   id: string;
@@ -13,27 +14,44 @@ type Props = {
   isChecked: boolean;
 };
 
+const getIconStyle = (isChecked: boolean) => ({
+  borderWidth: 1,
+  borderColor: isChecked ? '#1C1D20' : '#E0E2E6',
+});
+
+const checkboxStyle: StyleProp<ViewStyle> = {
+  position: 'absolute',
+  right: 0,
+  top: 20,
+};
+
 const UI005: React.FC<Props> = ({
   title,
   description,
   itemListTitle,
   itemList,
-  actions,
-  isChecked,
+  // actions,
+  // isChecked,
 }) => {
+  const [isChecked, setIsChecked] = useState(false);
+  let bouncyCheckboxRef: BouncyCheckbox | null = null;
+
+  const onPress = () => {
+    if (bouncyCheckboxRef !== null) {
+      bouncyCheckboxRef.onPress();
+    }
+  };
   return (
-    <CardContainer isChecked={isChecked}>
+    <CardContainer isChecked={isChecked} onPress={onPress}>
       <Title>{title}</Title>
       <BouncyCheckbox
         isChecked={isChecked}
-        onPress={actions}
+        onPress={setIsChecked}
         size={28}
-        iconStyle={{
-          borderWidth: 1,
-          borderColor: isChecked ? '#1C1D20' : '#E0E2E6',
-        }}
+        iconStyle={getIconStyle(isChecked)}
         fillColor="#1C1D20"
-        style={{position: 'absolute', right: 0, top: 20}}
+        style={checkboxStyle}
+        ref={(ref: any) => (bouncyCheckboxRef = ref)}
       />
       <Spacer height={12} />
       <Description>{description}</Description>
@@ -50,7 +68,7 @@ const UI005: React.FC<Props> = ({
 
 export default UI005;
 
-const CardContainer = styled.View<{isChecked: boolean}>`
+const CardContainer = styled.TouchableOpacity<{isChecked: boolean}>`
   margin-top: 30px;
   width: 327px;
   height: 146px;

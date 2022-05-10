@@ -1,4 +1,4 @@
 export type MainStackType = {
-  Home: undefined;
-  NextScreen: undefined;
+  SCREEN001: undefined;
+  SCREEN002: undefined;
 };

@@ -1,18 +1,20 @@
 import React from 'react';
-import {Alert} from 'react-native';
 import styled from 'styled-components/native';
+import useCustomRoute from 'v1/hooks/useCustomRoute';
+import {MainStackType} from 'v1/types/routeTypes';
 
 type Props = {
   id?: string;
-  screen?: string;
+  screen: keyof MainStackType;
   isPreserveGlobalSave?: boolean;
   buttonText?: string;
   isEnabled?: boolean;
 };
 
 const NAV002: React.FC<Props> = ({buttonText, screen}) => {
+  const {navigateTo} = useCustomRoute();
   return (
-    <Button onPress={() => Alert.alert('FETCH SCREEN ' + screen)}>
+    <Button onPress={() => navigateTo(screen)}>
       <Text>{buttonText}</Text>
     </Button>
   );
