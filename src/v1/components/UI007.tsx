@@ -1,4 +1,5 @@
 import React from 'react';
+import {Dimensions} from 'react-native';
 import styled from 'styled-components/native';
 
 type Props = {
@@ -26,7 +27,8 @@ const Container = styled.View`
   padding: 16px;
   border-radius: 10px;
   background-color: #f3f4f5;
-  margin: 0 24px;
+  margin-bottom: 10px;
+  width: ${Dimensions.get('window').width - 48}px;
 `;
 
 const Title = styled.Text`

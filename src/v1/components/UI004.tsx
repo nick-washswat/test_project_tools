@@ -23,6 +23,7 @@ const Wrapper = styled.View`
   flex-direction: row;
   align-items: center;
   padding-horizontal: 24px;
+  margin-vertical: 5px;
 `;
 
 const Icon = styled.Image`

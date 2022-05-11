@@ -28,6 +28,7 @@ const Button = styled.TouchableOpacity`
   border-radius: 20px;
   justify-content: center;
   align-items: center;
+  margin-vertical: 30px;
   padding-vertical: 20px;
 `;
 

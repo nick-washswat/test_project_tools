@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components/native';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import Spacer from './common/Spacer';
-import {StyleProp, ViewStyle} from 'react-native';
+import {Dimensions, StyleProp, ViewStyle} from 'react-native';
 
 type Props = {
   id: string;
@@ -69,8 +69,8 @@ const UI005: React.FC<Props> = ({
 export default UI005;
 
 const CardContainer = styled.TouchableOpacity<{isChecked: boolean}>`
-  margin-top: 30px;
-  width: 327px;
+  margin-bottom: 10px;
+  width: ${Dimensions.get('window').width - 48}px;
   height: 146px;
   background-color: #ffffff;
   /* Grayscale/Gray_50 */

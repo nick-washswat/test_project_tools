@@ -20,6 +20,7 @@ export default UI006;
 const Wrapper = styled.View`
   flex-direction: row;
   align-items: center;
+  margin-top: 20px;
 `;
 
 const Title = styled.Text`
@@ -28,6 +29,7 @@ const Title = styled.Text`
   font-size: 18px;
   color: #1c1d20;
   margin-right: 6px;
+  margin-bottom: 10px;
 `;
 
 const Img = styled.Image`

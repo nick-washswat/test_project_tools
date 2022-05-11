@@ -42,20 +42,26 @@ const useScreenMaker = (screenName: string) => {
     return <ActivityIndicator />;
   } else {
     return (
-      <Wrapper>
-        {data.elements.map((el: UIType) => {
-          const Component = Components[el.id as keyof typeof Components];
-          return <Component {...(el as any)} />;
-        })}
-      </Wrapper>
+      <ScrollView>
+        <Wrapper>
+          {data.elements.map((el: UIType, index: number) => {
+            const Component = Components[el.id as keyof typeof Components];
+            return <Component key={el.id + index} {...(el as any)} />;
+          })}
+        </Wrapper>
+      </ScrollView>
     );
   }
 };
 
 const Wrapper = styled.View`
   flex: 1;
-  background-color: #fff;
+
   align-items: center;
+`;
+
+const ScrollView = styled.ScrollView`
+  background-color: #fff;
 `;
 
 export default useScreenMaker;

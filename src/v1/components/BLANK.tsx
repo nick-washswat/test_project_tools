@@ -14,5 +14,5 @@ const BLANK: React.FC<Props> = props => {
 export default BLANK;
 
 const Wrapper = styled.View<Props>`
-  height: ${props => props.height};
+  height: ${props => props.height}px;
 `;

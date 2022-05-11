@@ -10,7 +10,7 @@ const UI001: React.FC<Props> = ({texts}) => {
   return (
     <Wrapper>
       {texts.slice(0, 2).map(el => (
-        <StyledText>{el}</StyledText>
+        <StyledText key={el}>{el}</StyledText>
       ))}
     </Wrapper>
   );
