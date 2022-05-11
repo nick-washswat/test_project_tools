@@ -167,7 +167,7 @@
         "screen": "SCREEN002",
         "isPreserveGlobalSave": true,
         "buttonText": "다음",
-        "isEnabled": true
+        "isEnabled": false
       }
     ]
   }

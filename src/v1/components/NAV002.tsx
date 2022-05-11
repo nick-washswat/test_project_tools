@@ -11,10 +11,10 @@ type Props = {
   isEnabled?: boolean;
 };
 
-const NAV002: React.FC<Props> = ({buttonText, screen}) => {
+const NAV002: React.FC<Props> = ({buttonText, screen, isEnabled}) => {
   const {navigateTo} = useCustomRoute();
   return (
-    <Button onPress={() => navigateTo(screen)}>
+    <Button disabled={!isEnabled} onPress={() => navigateTo(screen)}>
       <Text>{buttonText}</Text>
     </Button>
   );
@@ -22,8 +22,8 @@ const NAV002: React.FC<Props> = ({buttonText, screen}) => {
 
 export default NAV002;
 
-const Button = styled.TouchableOpacity`
-  background-color: #000;
+const Button = styled.TouchableOpacity<{disabled: boolean}>`
+  background-color: ${props => (props.disabled ? '#808080' : '#000')};
   width: 80%;
   border-radius: 20px;
   justify-content: center;

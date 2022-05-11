@@ -3,8 +3,11 @@ import styled from 'styled-components/native';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import Spacer from './common/Spacer';
 import {Dimensions, StyleProp, ViewStyle} from 'react-native';
+import {useDispatch} from 'react-redux';
+import {updateScreen} from 'v1/store/slices/screensSlice';
 
 type Props = {
+  screenId: string;
   id: string;
   title: string;
   description: string;
@@ -26,14 +29,17 @@ const checkboxStyle: StyleProp<ViewStyle> = {
 };
 
 const UI005: React.FC<Props> = ({
+  screenId,
+  id,
   title,
   description,
   itemListTitle,
   itemList,
-  // actions,
-  // isChecked,
+  actions,
 }) => {
+  const dispatch = useDispatch();
   const [isChecked, setIsChecked] = useState(false);
+
   let bouncyCheckboxRef: BouncyCheckbox | null = null;
 
   const onPress = () => {
@@ -41,12 +47,24 @@ const UI005: React.FC<Props> = ({
       bouncyCheckboxRef.onPress();
     }
   };
+
+  const onPressCheckHandler = () => {
+    dispatch(
+      updateScreen({
+        screenId,
+        targetUIId: actions[0].target,
+        isChecked: !isChecked,
+      }),
+    );
+    setIsChecked(!isChecked);
+  };
+
   return (
     <CardContainer isChecked={isChecked} onPress={onPress}>
       <Title>{title}</Title>
       <BouncyCheckbox
         isChecked={isChecked}
-        onPress={setIsChecked}
+        onPress={onPressCheckHandler}
         size={28}
         iconStyle={getIconStyle(isChecked)}
         fillColor="#1C1D20"

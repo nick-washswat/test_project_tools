@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components/native';
 import {useQuery} from 'react-query';
 import {ActivityIndicator} from 'react-native';
@@ -16,6 +16,10 @@ import {
   UI006,
   UI007,
 } from 'v1/components';
+import {useDispatch} from 'react-redux';
+import {useSelector} from 'react-redux';
+import {AppState} from 'v1/store';
+import {addScreen} from 'v1/store/slices/screensSlice';
 
 const Components = {
   NAV001: NAV001,
@@ -34,9 +38,22 @@ interface UIType {
   id: string;
 }
 const useScreenMaker = (screenName: string) => {
+  const dispatch = useDispatch();
+  const screen: screenPropTypes | undefined = useSelector((state: AppState) =>
+    state.screens.screensList.find(
+      el => el.screen === screenName.toUpperCase(),
+    ),
+  );
+
   const {isLoading, data} = useQuery(screenName, () =>
     fetch(`http://localhost:3000/${screenName}`).then(res => res.json()),
   );
+
+  useEffect(() => {
+    if (!isLoading && data) {
+      dispatch(addScreen(data));
+    }
+  }, [isLoading, data]);
 
   if (isLoading) {
     return <ActivityIndicator />;
@@ -44,9 +61,15 @@ const useScreenMaker = (screenName: string) => {
     return (
       <ScrollView>
         <Wrapper>
-          {data.elements.map((el: UIType, index: number) => {
+          {screen?.elements.map((el: UIType, index: number) => {
             const Component = Components[el.id as keyof typeof Components];
-            return <Component key={el.id + index} {...(el as any)} />;
+            return (
+              <Component
+                key={el.id + index}
+                {...(el as any)}
+                screenId={screen.screen}
+              />
+            );
           })}
         </Wrapper>
       </ScrollView>

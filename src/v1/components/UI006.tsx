@@ -18,9 +18,11 @@ const UI006: React.FC<Props> = ({title, imageUrl}) => {
 
 export default UI006;
 const Wrapper = styled.View`
+  width: 100%;
   flex-direction: row;
   align-items: center;
   margin-top: 20px;
+  padding-horizontal: 24px;
 `;
 
 const Title = styled.Text`
