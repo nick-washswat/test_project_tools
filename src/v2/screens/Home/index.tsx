@@ -64,5 +64,5 @@ const AddButton = styled.TouchableOpacity`
 
 const Text = styled.Text`
   font-size: 18px;
-  color: #fff;
+  color: #ffffff;
 `;
