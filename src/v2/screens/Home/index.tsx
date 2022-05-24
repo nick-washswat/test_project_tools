@@ -56,7 +56,7 @@ const StyledFlatlis = styled.FlatList`
 const AddButton = styled.TouchableOpacity`
   position: absolute;
   bottom: 50px;
-  background-color: #000;
+  background-color: #000000;
   border-radius: 50px;
   padding-vertical: 10px;
   padding-horizontal: 20px;
